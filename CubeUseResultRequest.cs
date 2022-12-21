@@ -16,17 +16,17 @@ namespace MaplestoryOpenAPI
 
         public CubeHistoryResponseDTO GetDataByDate(string apiKey, int resultPerPage, int year, int month, int day)
         {
-            string url = GetUrlByDate(resultPerPage, year, month, day);
+            string url = m_GetUrlByDate(resultPerPage, year, month, day);
             return m_RequestData(apiKey, url);
         }
 
         public CubeHistoryResponseDTO GetDataByCursor(string apiKey, int resultPerPage, string cursor)
         {
-            string url = GetUrlByCursor(resultPerPage, cursor);
+            string url = m_GetUrlByCursor(resultPerPage, cursor);
             return m_RequestData(apiKey, url);
         }
 
-        private string GetUrlByDate(int resultPerPage, int year, int month, int day)
+        private string m_GetUrlByDate(int resultPerPage, int year, int month, int day)
         {
             builder.Clear();
             builder.Append("https://public.api.nexon.com/openapi/maplestory/v1/cube-use-results?");
@@ -36,7 +36,7 @@ namespace MaplestoryOpenAPI
             return builder.ToString();
         }
 
-        private string GetUrlByCursor(int resultPerPage, string cursor)
+        private string m_GetUrlByCursor(int resultPerPage, string cursor)
         {
             builder.Clear();
             builder.Append("https://public.api.nexon.com/openapi/maplestory/v1/cube-use-results?");
