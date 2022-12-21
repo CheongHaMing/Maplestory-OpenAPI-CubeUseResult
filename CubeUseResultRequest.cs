@@ -26,21 +26,21 @@ namespace MaplestoryOpenAPI
             return m_RequestData(apiKey, url);
         }
 
-        private string GetUrlByDate(int count, int year, int month, int day)
+        private string GetUrlByDate(int resultPerPage, int year, int month, int day)
         {
             builder.Clear();
             builder.Append("https://public.api.nexon.com/openapi/maplestory/v1/cube-use-results?");
-            builder.AppendFormat("count={0}", count);
+            builder.AppendFormat("count={0}", resultPerPage);
             builder.AppendFormat("&date={0,4:D4}-{1,2:D2}-{2,2:D2}", year, month, day);
             builder.Append("&cursor=");
             return builder.ToString();
         }
 
-        private string GetUrlByCursor(int count, string cursor)
+        private string GetUrlByCursor(int resultPerPage, string cursor)
         {
             builder.Clear();
             builder.Append("https://public.api.nexon.com/openapi/maplestory/v1/cube-use-results?");
-            builder.AppendFormat("count={0}", count);
+            builder.AppendFormat("count={0}", resultPerPage);
             builder.Append("&date=");
             builder.AppendFormat("&cursor={0}", cursor);
             return builder.ToString();
