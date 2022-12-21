@@ -21,8 +21,6 @@ namespace MaplestoryOpenAPI
         [JsonInclude] public List<CubeResultOptionDTO> before_potential_options;
         [JsonInclude] public List<CubeResultOptionDTO> before_additional_potential_options;
         [JsonInclude] public List<CubeResultOptionDTO> after_potential_options;
-        public List<CubeResultOptionDTO> after_additional_potential_options;
-
-        // [JsonPropertyName("target_item")] 과 같은 식으로 애트리뷰트 지정 가능.
+        [JsonInclude] public List<CubeResultOptionDTO> after_additional_potential_options;
     }
 }
